@@ -1,11 +1,3 @@
-# the first way is dynamic programming with nested loops
-# because the nested loops would upto n^2 in time complexity.
-# In contrast, the constraint of the assignment is upto 2 * 10^5 for the length
-# of an array could have.
-# the second way, after asking for Gemini => use tail array and search for other numbers
-# which is suitable for the assignment.
-
-
 def ascendingSubsequence(arr, n):
     tails = []
 
