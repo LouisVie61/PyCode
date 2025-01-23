@@ -1,26 +1,24 @@
 # I've got the problem when using 2D array with Dynamic Programming
-# Instead of using the 2D, we can just only use 1D array
+# Instead of using the 2D, we can just use 1D array
 
 
 def findLargestProduct(nums):
-    n = int(len(nums))
-    dp = [[0] * n for _ in range(n)]
-    for i in range(0, n - 1, 1):
-        for j in range(i, n, 1):
-            dp[i][j] = max(nums[i] * nums[j], nums[i] * dp[i + 1][j], nums[j] * dp[i][j - 1])
-            if j == i:
-                dp[i][j] = nums[i]
+    n = len(nums)
+    if n == 0:
+        return 0
+
+    max_fur = min_fur = nums[0]
+    result = nums[0]
+
+    for i in range(1, n):
+        cur = nums[i]
+        tmp_max = max(cur, max_fur * cur, min_fur * cur)
+        min_fur = min(cur, max_fur * cur, min_fur * cur)
+        max_fur = tmp_max
+        result = max(result, max_fur)
+
+    return result
 
 
-    maxProduct = -200
-    for i in range (0, n, 1):
-        for j in range(0, n, 1):
-            if maxProduct < dp[i][j]:
-                 maxProduct = dp[i][j]
-
-
-    print(*dp)
-    return maxProduct
-
-arr = [2, 3, -2, 4]
+arr = [-4, -3, -2]
 print(findLargestProduct(arr))
