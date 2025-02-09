@@ -30,6 +30,25 @@ def cntBadPairsWay2(nums: List[int]) -> int:
 
     return total_pairs - cntGoodPairs
 
+
+def cntBadPairsWay3(nums: List[int]) -> int:
+    n = len(nums)
+    total_pairs = n * (n - 1) // 2
+
+    diff_count = collections.defaultdict(int)
+    for i in range(n):
+        diff = nums[i] - i
+        diff_count[diff] += 1
+
+    good_pairs = 0
+    for count in diff_count.values():
+        if count > 1:
+            good_pairs += (count * (count - 1) // 2)
+
+    return total_pairs - good_pairs
+
+
 arr = [4,1,3,3]
-print(cntBadPairs(arr))
+print(f'cach 1: {cntBadPairs(arr)}')
 print(f'cach 2: {cntBadPairsWay2(arr)}')
+print(f'cach 3: {cntBadPairsWay3(arr)}')
