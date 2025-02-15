@@ -46,3 +46,9 @@ if result:
     print("Path found:", result)
 else:
     print("No path found within depth limit")
+
+
+# code from chatgpt
+# Uninformed search strategy, IDS, combination between DFS_space and BFS_time for advantage
+# with O(b^d) b is node and d is the depth that we found solution
+# worst case O(b^m) where m is the maximum depth of the graph
