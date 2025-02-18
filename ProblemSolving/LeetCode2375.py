@@ -35,12 +35,27 @@ def smallestNumber(pattern: str) -> str:
     return "".join(map(str, num))
 
 
+# we can use monotonic stack to solve the problem with higher efficiency
+def alternativeWay(pattern: str) -> str:
+    stack = []
+    result = []
+
+    for i in range(len(pattern) + 1):
+        stack.append(str(i + 1))
+
+        if i == len(pattern) or pattern[i] == "I":
+            while stack:
+                result.append(stack.pop())
+
+    return "".join(result)
+
 pattern_1 = "II"
 pattern_2 = "ID"
 pattern_3_example = "IIIDIDDD"
 pattern_4_example = "DDD"
 
 print(f'Ket qua 1: {smallestNumber(pattern_1)}')
+print(f'Ket qua 2: {alternativeWay(pattern_2)}')
 print(f'Ket qua 2: {smallestNumber(pattern_2)}')
 print(f'Ket qua 3: {smallestNumber(pattern_3_example)}')
 print(f'Ket qua 4: {smallestNumber(pattern_4_example)}')
