@@ -2,28 +2,31 @@ def smallestNumber(pattern: str) -> str:
     pattern = list(pattern)
     n = len(pattern)
     num = [0] * (n + 1)
-    is_number_used = [False] * 9
+    is_number_used = [False] * 10
 
     def gen_num(pos) -> bool:
         if pos == n + 1:
             return True
 
-        if num[pos] != 0:
-            return gen_num(pos + 1)
-
         for i in range(1, 10):
-            if is_number_used[i - 1]:
+            if is_number_used[i]:
                 continue
 
-            num[pos] = i
-            is_number_used[i - 1] = True
+            if pos > 0:
+                if pattern[pos - 1] == "I" and i < num[pos - 1]:
+                    continue
+                if pattern[pos - 1] == "D" and i > num[pos - 1]:
+                    continue
 
-            if gen_num(pos):
+            num[pos] = i
+            is_number_used[i] = True
+
+            if gen_num(pos + 1):
                 return True
 
-            # back_track
+            # backtrack
             num[pos] = 0
-            is_number_used[i - 1] = False
+            is_number_used[i] = False
 
         return False
 
