@@ -41,6 +41,9 @@ def alternativeWay(nums: list) -> str:
     return generate_binary("")
 
 
+# instead of storing and generating all combinations, we can only store and generate a valid option
+# the alternative way is represented by the second function with recursion
+
 nums = ["01"]
 print(validNum(nums))
 
