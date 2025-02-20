@@ -22,6 +22,25 @@ def validNum(nums: list) -> str:
 
     return ""
 
+def alternativeWay(nums: list) -> str:
+    n = len(nums[0])
+    num_set = set(nums)  # Use a set for O(1) lookup
+
+    def generate_binary(curr):
+        if len(curr) == n:  # Base case: if we have built an n-length string
+            if curr not in num_set:  # If it's not in the given list, return it
+                return curr
+            return None
+
+        # Try adding '0' and '1' to build a new string
+        result = generate_binary(curr + '0')
+        if result:  # If we found a valid missing string, return it
+            return result
+        return generate_binary(curr + '1')
+
+    return generate_binary("")
+
+
 nums = ["01"]
 print(validNum(nums))
 
