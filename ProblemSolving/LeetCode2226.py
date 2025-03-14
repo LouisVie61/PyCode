@@ -10,6 +10,7 @@ def maximumCandies (candies: list, k: int) -> int:
         cnt = sum(c // m for c in candies)
         return cnt >= k
 
+    # l = 1: moi tre co it nhat mot vien keo
     l, r = 1, max(candies)
     while l < r:
         mid = (r + l + 1) // 2
