@@ -1,0 +1,34 @@
+Thuật toán Quay lui (Backtracking) là gì?
+Là một kỹ thuật đệ quy dùng để duyệt qua tất cả các khả năng của một bài toán bằng cách:
+    Thử từng lựa chọn,
+    Nếu không hợp lệ → quay lui về trạng thái trước,
+    Thử lựa chọn tiếp theo.
+
+Nó giống như việc đi vào một mê cung:
+    Bạn đi một hướng,
+    Nếu thấy tường hoặc đi nhầm, bạn quay đầu lại và thử hướng khác.
+
+- Basic structure:
+void backtrack(…) {
+    if (đạt điều kiện dừng) {
+        xử lý lời giải;
+        return;
+    }
+
+    for (tất cả các lựa chọn có thể) {
+        if (lựa chọn hợp lệ) {
+            chọn;
+            backtrack(...);
+            bỏ chọn (quay lui);
+        }
+    }
+}
+
+- Summary:
+
+Backtracking là đệ quy có thử – sai – quay lại.
+Là kỹ thuật nền tảng trong lập trình giải thuật.
+
+Hữu ích khi:
+Không thể duyệt hết bằng vòng lặp
+Bài toán có nhiều khả năng/phương án
