@@ -32,3 +32,7 @@ Là kỹ thuật nền tảng trong lập trình giải thuật.
 Hữu ích khi:
 Không thể duyệt hết bằng vòng lặp
 Bài toán có nhiều khả năng/phương án
+
+- Cách tính/ dự đoán BigO (complexity)
+-> vì Backtrack giống như việc chúng ta tạo một cây với tất cả các lựa chọn
+-> complexity = (number of nodes in tree) * (work at each node)
